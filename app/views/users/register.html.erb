@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sing Up</title>
+</head>
+
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h1>Sign Up</h1>
+            <form action="/create" method="POST">
+                <div class="form-group">
+                    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                    <input type="name" name="user[nmae]" placeholder="name" class="form-control mb-2">
+                    <input type="email" name="user[email]" placeholder="email" class="form-control mb-2">
+                    <input type="password" name="user[password]" placeholder="password" class="form-control mb-2">
+                    <input type="password" name="user[password_confirmation]" placeholder="password confirmation" class="form-control">
+                </div>
+                <input type="submit" name="submit" class="submit btn btn-outline-primary">
+                <div class="container pl-0 ml-0">
+                    Already have an account?<%= link_to "Sign In", login_path, :class => 'link' %>
+                </div>
+            </form>
+            <div class="errors">
+                <% if flash[:register_errors] %>
+                <% flash[:register_errors].each do |error| %>
+                <p>
+                    <%= error %>
+                </p>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
