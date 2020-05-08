@@ -1,6 +1,6 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.body %></p>
-<hr>
+
 <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-warning' %>
 <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete this post?"}, :class => 'btn btn-danger' %>
 <hr>
@@ -13,19 +13,21 @@
 <br>
 <% end %>
 
-<hr>
-<h2>Add comment</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-	<p>
-		User<br>
-		<%= f.text_field(:username, {:class => 'form-control'}) %>
-	</p>
-	<p>
-		Comment text<br>
-		<%= f.text_area(:body, {:class => 'form-control'}) %>
-	</p>
+<% if logged_in? %>
+	<hr>
+	<h2>Add comment</h2>
+	<%= form_for([@post, @post.comments.build]) do |f| %>
+		<p>
+			User<br>
+			<%= f.text_field(:username, {:class => 'form-control', :readonly => true, :value => current_user.email}) %>
+		</p>
+		<p>
+			Comment text<br>
+			<%= f.text_area(:body, {:class => 'form-control'}) %>
+		</p>
 
-	<p>
-		<%= f.submit("Add comment", {:class => 'btn btn-warning'}) %>
-	</p>
+		<p>
+			<%= f.submit("Add comment", {:class => 'btn btn-warning'}) %>
+		</p>
+	<% end %>
 <% end %>

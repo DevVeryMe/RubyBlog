@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-	def login
+	before_action :logged_in_user, only: [:new, :show]
+    before_action :correct_user, only: [:new, :show]
 
-	end
+    def index
+      @users = User.all
+    end
 
-	def register
-
-	end
-
-	def create
+    def create
 		user = User.new(user_params)
 		if user.save
 			session[:user_id] = user.id
@@ -17,6 +16,15 @@ class UsersController < ApplicationController
 			redirect_to login_path
 		end
 	end
+
+    def show
+      @user = User.find(params[:id])
+      @posts = @user.posts
+    end
+
+    def edit
+      @user = User.find(params[:id])
+    end
 
 	private
 		def user_params

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>VeryMe</title>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     
@@ -17,7 +18,12 @@
         <span class="p-2 text-dark"><%= link_to "Home", home_path %></span>
         <span class="p-2 text-dark"><%= link_to "Add Post", new_post_path %></span>
         <span class="p-2 text-dark"><%= link_to "About us", about_path %></span>
-        <span class="p-2 text-dark"><%= link_to "Sign In/Up", login_path %></span>
+         <% if logged_in? %>
+           <span class="p-2 text-dark"><%= link_to current_user.email, home_path %></span>
+           <span class="p-2 text-dark"><%= link_to "Log out", destroy_path %></span>
+         <% else %>
+           <span class="p-2 text-dark"><%= link_to 'Sign In', login_path %></span>
+         <% end %>
       </nav>
     </div>
   

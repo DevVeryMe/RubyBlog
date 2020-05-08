@@ -4,9 +4,11 @@ root 'posts#index', as: 'home'
 
 get 'about' => 'pages#about', as: 'about'
 
+get '/logout' => 'users#logout', as: 'logout'
 get '/login' => 'users#login', as: 'login'
 get '/register' => 'users#register', as: 'register'
-post '/sessions' => 'sessions#create'
+get '/sessions' => 'sessions#destroy', as: 'destroy'
+post '/sessions' => 'sessions#create', as: 'sessions'
 post '/create' => 'users#create'
 
 resources :posts do
