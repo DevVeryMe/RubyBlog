@@ -18,16 +18,15 @@ class UsersController < ApplicationController
 	end
 
     def show
-      @user = User.find(params[:id])
-      @posts = @user.posts
+      @user = User.find_by(id: session[:user_id])
     end
 
     def edit
-      @user = User.find(params[:id])
+      @user = User.find_by(id: session[:user_id])
     end
 
 	private
 		def user_params
-			params.require(:user).permit(:name, :email, :password, :password_confirmation)
+			params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin => false)
 		end
 end

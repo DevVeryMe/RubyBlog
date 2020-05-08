@@ -8,6 +8,7 @@ get '/logout' => 'users#logout', as: 'logout'
 get '/login' => 'users#login', as: 'login'
 get '/register' => 'users#register', as: 'register'
 get '/sessions' => 'sessions#destroy', as: 'destroy'
+get '/profile' => 'users#show', as: 'profile'
 post '/sessions' => 'sessions#create', as: 'sessions'
 post '/create' => 'users#create'
 
