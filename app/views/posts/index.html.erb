@@ -1,6 +1,6 @@
-<h1>All posts</h1>
+<h1 id="posts-title">All posts</h1>
 <% @post.each do |post| %>
-<div class="alert alert-light">
+<div class="alert alert-light info-container">
 	<h3><%= post.title %></h3>
 	<p><%= post.body %></p>
 	<%= link_to "More...", post_path(post), :class => 'btn btn-outline-primary' %>

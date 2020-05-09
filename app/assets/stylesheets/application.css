@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background: rgba(182, 185, 185, 0.15);
+}
+
+#posts-title {
+    color: black;
+}
+
+.info-container {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#username {
+    width: auto;
+}
