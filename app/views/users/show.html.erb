@@ -1,2 +1,5 @@
 <h3><%= @user.name %></h3>
 <h5><strong>email: </strong> <%= @user.email %></h5>
+<hr>
+
+<%= link_to "Edit Profile", edit_user_path, :class => 'btn btn-warning' %>
