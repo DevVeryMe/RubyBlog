@@ -17,7 +17,11 @@
       <h5 class="my-0 mr-md-auto font-weight-bold">VeryMe</h5>
       <nav class="my-2 my-md-0 mr-md-3">
         <span class="p-2 text-dark"><%= link_to "Home", home_path %></span>
-        <span class="p-2 text-dark"><%= link_to "Add Post", new_post_path %></span>
+        <span class="p-2 text-dark"><%= link_to "Categories", categories_path %></span>
+        <% if logged_in? && is_admin? %>
+          <span class="p-2 text-dark"><%= link_to "Add Post", new_post_path %></span>
+          <span class="p-2 text-dark"><%= link_to "Add Category", new_category_path %></span>
+        <% end %>
         <span class="p-2 text-dark"><%= link_to "About us", about_path %></span>
          <% if logged_in? %>
            <span class="p-2 text-dark"><%= link_to current_user.name, user_path(current_user) %></span>

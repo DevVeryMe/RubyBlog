@@ -1,0 +1,16 @@
+<div class="alert alert-light info-container">
+	<h1><%= @category.name %></h1>
+	<% if logged_in? && is_admin? %>
+		<%= link_to "Remove", category_path(@category), method: :delete, data: {confirm: "Are you sure? All posts will be deleted!"}, :class => 'btn btn-danger' %>
+	<% end %>
+</div>
+
+<h4 id="posts-title">Posts</h4>
+<% @category.posts.each do |post| %>
+<div class="alert alert-light info-container">
+	<h3><%= post.title %></h3>
+	<p><%= post.body %></p>
+	<%= link_to "More...", post_path(post), :class => 'btn btn-outline-primary' %>
+</div>
+<br>
+<% end %>

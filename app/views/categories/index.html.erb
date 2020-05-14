@@ -1,0 +1,8 @@
+<h3 id="posts-title">All Categories</h3>
+<% @category.each do |category| %>
+<div class="alert alert-light info-container">
+	<h4><%= category.name %></h4>
+	<%= link_to "More...", category_path(category), :class => 'btn btn-outline-primary' %>
+</div>
+<br>
+<% end %>

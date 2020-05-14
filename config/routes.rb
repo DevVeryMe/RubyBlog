@@ -19,4 +19,8 @@ put '/users/:id', to: 'users#update'
 resources :posts do
 	resources :comments
 end
+
+resources :categories do
+	resources :posts
+end
 end

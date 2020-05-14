@@ -13,6 +13,10 @@
 		State Text<br>
 		<%= f.text_area(:body, {:class => 'form-control'}) %>
 	</p>
+	<p>
+		Category<br>
+		<%= f.select :category_id, options_for_select(Category.all.collect {|c| [c.name, c.id]}), { :include_blank => "Please select category"}, {:class => "form-control"} %>
+	</p>
 
 	<p>
 		<%= f.submit({:class => 'btn btn-success'}) %>
