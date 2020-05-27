@@ -19,7 +19,7 @@ class CategoriesController < ApplicationController
 		if(@category.save)
 			redirect_to @category
 		else
-			render :new
+			render home_path
 		end
 	end
 

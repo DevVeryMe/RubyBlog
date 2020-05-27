@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 		if(@post.update(post_params))
 			redirect_to @post
 		else
-			render :edit
+			redirect_to posts_path
 		end
 	end
 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 		if(@post.save)
 			redirect_to @post
 		else
-			render :new
+			redirect_to posts_path
 		end
 	end
 

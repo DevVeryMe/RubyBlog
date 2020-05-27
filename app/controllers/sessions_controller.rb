@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 			redirect_to home_path
 		else
 			flash[:login_errors] = ['invalid credentionals']
-			render :new
+			redirect_to login_path
 		end
 
 	end

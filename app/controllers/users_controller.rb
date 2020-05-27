@@ -31,13 +31,13 @@ class UsersController < ApplicationController
 		if(@user.update(edit_params))
 			redirect_to @user
 		else
-			render :edit
+			redirect_to home_path
 		end
     end
 
 	private
 		def user_params
-			params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin => false)
+			params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
 		end
 
 		def edit_params
